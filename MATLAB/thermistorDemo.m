@@ -25,14 +25,23 @@ configureCallback(ard, "terminator", @(src, event)plotArduinoData(src, event, h)
 
 %% callback function. 
 % This function is called whenever a Serial.println() occurs on the Arduino 
+% Example line of data that is sent by the arduino:
+% "AnalogReading,548.00;Resistance,11398.40;SeriesVoltage,1.77;Temperature,22.80"
+% 
+% The format is <Type of reading>,<Value>;<Type of reading>,Value;...
+% Each type of reading (e.g. resistance, temperature, etc) are separated by
+% semi-colons. 
 function plotArduinoData(src, ~, h)
 
     dataNew = readline(src);
-    dataNew = split(split(dataNew, ";"), ",");
-    
-    cnt = src.UserData.cnt + 1;
+    dataNew = split(split(dataNew, ";"), ","); % separate each reading and value of the reading
+    % dataNew is (4x2). First column is the name of the reading, second
+    % column are the corresponding values.
+    cnt = src.UserData.cnt + 1; % increment count
     allH = [h.axA, h.axR, h.axV, h.axT];
     yCurrent = cell2mat(get(allH, "YData"));
+    % the following is basically a scrolling plot. old data is replaced
+    % with new data instead of just being added to reduce memory load.
     if cnt > h.window_len
         xCurrent = get(h.axA, "XData");
         xCurrent = [xCurrent(2:end), xCurrent(end) + 1];
