@@ -9,28 +9,28 @@ figure;
 tiledlayout(4,1, "TileSpacing", "tight");
 
 nexttile;
-axA = plot(x, y, "LineWidth", 1.5);
+axA = plot(x, y);
 title("Analog Reading")
 ylabel("ADC Value")
 xlim([1 window_len])
 ylim([400 600])
 
 nexttile
-axR = plot(x, y, "LineWidth", 1.5);
+axR = plot(x,y);
 title("Thermistor Resistance")
 ylabel("Ohms")
 xlim([1 window_len])
 ylim([8000 12000])
 
 nexttile
-axV = plot(x, y, "LineWidth", 1.5);
+axV = plot(x,y);
 title("Output Voltage")
 ylabel("Volts")
 xlim([1 window_len])
 ylim([0 4])
 
 nexttile
-axT = plot(x, y, "LineWidth", 1.5);
+axT = plot(x,y);
 title("Temperature")
 ylabel("Celcius")
 xlabel("Samples")
