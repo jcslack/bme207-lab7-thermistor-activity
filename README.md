@@ -1,7 +1,6 @@
 # bme207-lab7-thermistor-activity
 Code and instructions for BME207 thermistor activity in Lab 7 - Signal Acquisition. This activity was adapted from an [Adafruit tutorial](https://learn.adafruit.com/thermistor/using-a-thermistor).
-
-
+ 
 ## Prerequisites
 ### Software
 - MATLAB installation (tested on R2026b but should work on earlier versions)
@@ -15,7 +14,7 @@ Code and instructions for BME207 thermistor activity in Lab 7 - Signal Acquisiti
 1. Download/clone this repository.
 2. Measure resistance of resistor
 3. Measure resistance of thermistor at room temperature
-4. In the Arduino code (`Arduino\thermistor_acquisition\thermistor_acquisition.ino`), set the variable `SERIESRESISTOR` to the measurement of **Step 1** and the variable `THERMISTORNOMINAL` to the measurement in **Step 2**
+4. In the Arduino code (`Arduino\thermistor_acquisition\thermistor_acquisition.ino`), set the variable `SERIESRESISTOR` to the measurement of **Step 2** and the variable `THERMISTORNOMINAL` to the measurement in **Step 3**
     - Note: While not necessary, setting these values will provide more accurate temperature measurements  
 5. Connect the Arduino to your computer and upload the code
     - Troubleshooting: make sure that `thermistor_acquisition.ino` is in a folder titled `thermistor_acquisition`
@@ -43,3 +42,13 @@ Figure 1. Breadboard Digram
     - Note: I also found it somewhat reliable use use the light on your phone and hold it directly next to the thermistor.
     - Question: **When pressing your fingers/shining a light, did the resistance of the thermistor increase or decrease? Do the temperature readings seem appropriate?**
 
+## Results
+Q1. Report the resistances values from Steps **2** and **3**.
+
+Q2. Report your answer to the question in Step **6**.
+
+Q3. Include a screenshot of the figure from Step **9**.
+
+Q4. Include a screenshot of the figure from Step **10**.
+
+Q5. Report your answer to the questions in Step **10**.

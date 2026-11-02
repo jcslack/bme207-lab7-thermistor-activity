@@ -9,7 +9,19 @@
 window_len = 100; %number of samples displayed in plots at a given time. 
 
 h = setupPlot(window_len); %plots
-com_port = serialportlist(); %this assumes that the Arduino is the only serial port device connected to you computer (e.g "COM4"/"COM#" on windows)
+
+com_ports = serialportlist("available"); %this assumes that the Arduino is the only serial port device connected to you computer (e.g "COM4"/"COM#" on windows)
+if isempty(com_ports)
+    error("No serial port connections available");
+end
+if ismac
+    com_ports = com_ports(contains(com_ports, "usbseral") | contains(comp_ports, "usbmodem"));    
+end
+if isempty(com_ports)
+    error("No Arduino detected. Make sure the board is plugged in and not being used in the IDE.");
+else
+    comp_port = com_ports(1);  % take the first entry if more than one.
+end
 ard = serialport(com_port, 9600); %serial port object
 
 ard.UserData.cnt = 0; % counter for tracking number of samples acquired
